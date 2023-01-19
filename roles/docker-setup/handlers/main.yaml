@@ -1,0 +1,5 @@
+- name: Restart and enable docker
+  ansible.builtin.systemd:
+    name: docker-ce
+    enabled: true
+    state: restarted
