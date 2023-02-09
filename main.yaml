@@ -1,17 +1,17 @@
 - name: Standard configuration
-  hosts: azril-vm
+  hosts: docker
   become: true
   roles:
     - common
 
 - name: Setup Docker
-  hosts: azril-vm
+  hosts: docker
   become: true
   roles:
     - docker-setup
 
 - name: Add User to Group Docker
-  hosts: azril-vm
+  hosts: docker
   become: true
   roles:
     - users
