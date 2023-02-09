@@ -1,17 +1,17 @@
 - name: Standard configuration
-  hosts: all
+  hosts: az-vm
   become: true
   roles:
     - common
 
 - name: Setup Docker
-  hosts: all
+  hosts: az-vm
   become: true
   roles:
     - docker-setup
 
 - name: Add User to Group Docker
-  hosts: all
+  hosts: az-vm
   become: true
   roles:
     - users
