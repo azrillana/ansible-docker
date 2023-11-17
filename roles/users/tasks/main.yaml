@@ -3,8 +3,14 @@
     name: docker
     state: present
 
+- name: Determine 1000 group
+  command: "getent group 1000"
+  register: group_1000
+  changed_when: false
+
 - name: Add User to Docker Group
   ansible.builtin.user:
-    name: manage
+    name: "{{ ansible_env.USER | default(ansible_env.LOGNAME) }}"
     groups: docker
     append: yes
+  when: "'1000' in group_1000.stdout"
